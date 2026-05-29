@@ -1,0 +1,253 @@
+:root {
+  --bg: #f7f0df;
+  --surface: #fffaf0;
+  --surface-strong: #fff3d2;
+  --text: #15110c;
+  --muted: #5d544a;
+  --border: #15110c;
+  --pink: #ff0055;
+  --yellow: #bbff1f;
+  --shadow: 6px 6px 0 var(--border);
+  --radius: 22px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(255, 0, 85, 0.12), transparent 28rem),
+    linear-gradient(135deg, var(--bg), #fffdf6);
+  color: var(--text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body.codeoi {
+  --accent: var(--yellow);
+}
+
+body.rearview {
+  --accent: #7cf7ff;
+}
+
+body.oiagents {
+  --accent: var(--pink);
+}
+
+.page-shell {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 28px 0 40px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 56px;
+}
+
+.brand,
+.status,
+.btn,
+.kicker {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.brand {
+  color: var(--text);
+  text-decoration: none;
+  border: 2px solid var(--border);
+  background: var(--surface);
+  padding: 12px 16px;
+  border-radius: 999px;
+  box-shadow: 3px 3px 0 var(--border);
+}
+
+.status {
+  border: 2px solid var(--border);
+  background: var(--accent);
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  box-shadow: 3px 3px 0 var(--border);
+}
+
+.hero {
+  border: 2px solid var(--border);
+  background: var(--surface);
+  border-radius: calc(var(--radius) + 8px);
+  padding: clamp(32px, 6vw, 72px);
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  right: -80px;
+  top: -80px;
+  width: 220px;
+  height: 220px;
+  border: 2px solid var(--border);
+  background: var(--accent);
+  border-radius: 50%;
+  opacity: 0.9;
+  z-index: 0;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.kicker {
+  margin: 0 0 18px;
+  color: var(--muted);
+  text-transform: uppercase;
+  font-size: 0.82rem;
+}
+
+h1 {
+  margin: 0;
+  max-width: 900px;
+  font-size: clamp(4rem, 14vw, 9rem);
+  line-height: 0.86;
+  letter-spacing: -0.09em;
+  font-weight: 950;
+}
+
+.subtitle {
+  max-width: 760px;
+  margin: 28px 0 0;
+  color: var(--muted);
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  line-height: 1.55;
+  font-weight: 650;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 13px 18px;
+  border: 2px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  text-decoration: none;
+  box-shadow: 4px 4px 0 var(--border);
+  transition: transform 140ms ease-out, box-shadow 140ms ease-out;
+}
+
+.btn.primary {
+  background: var(--accent);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 0 var(--border);
+}
+
+.btn:active {
+  transform: translateY(1px);
+  box-shadow: 2px 2px 0 var(--border);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 34px;
+}
+
+.card,
+.panel {
+  border: 2px solid var(--border);
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: 5px 5px 0 var(--border);
+}
+
+.card {
+  padding: 26px;
+}
+
+.card h2,
+.panel h2 {
+  margin: 0;
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  letter-spacing: -0.055em;
+  line-height: 0.95;
+}
+
+.card p,
+.panel p {
+  color: var(--muted);
+  line-height: 1.55;
+  font-weight: 600;
+}
+
+.panel {
+  margin-top: 34px;
+  padding: clamp(28px, 5vw, 48px);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.55), transparent),
+    var(--surface-strong);
+}
+
+footer {
+  margin-top: 42px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .page-shell {
+    width: min(100% - 20px, 1120px);
+    padding-top: 16px;
+  }
+
+  .nav {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 28px;
+  }
+
+  .hero {
+    padding: 28px 22px;
+  }
+
+  h1 {
+    font-size: clamp(3.8rem, 22vw, 6rem);
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
